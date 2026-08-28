@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "metrics": {"production_loc": 2208, "production_files": 18, "production_packages": 8, "test_files": 9, "production_functions": 47, "decision_points": 28},
+  "persistence": {"module": "go.etcd.io/bbolt", "entities": ["Customer", "Visit", "Review", "ArchiveRecord"], "reopen_test": "TestPersistenceSurvivesReopen"},
+  "workflows": [
+    {"steps": ["register customer", "schedule visit", "submit review", "archive record"], "test": "TestWorkflowOne"},
+    {"steps": ["capture visit notes", "validate readiness", "approve review", "query customer history"], "test": "TestWorkflowTwo"},
+    {"steps": ["open persistent store", "process concurrent tasks", "close task channel", "reopen and verify state"], "test": "TestWorkflowThree"}
+  ]
+}
