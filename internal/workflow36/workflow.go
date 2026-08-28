@@ -25,8 +25,5 @@ func (w *Workflow) Run(ids []string) error {
 	go func() { wg.Wait(); close(done) }()
 	for range done {
 	}
-	if len(ids) > 1 {
-		close(done)
-	}
 	return nil
 }
